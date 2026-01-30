@@ -1,0 +1,17 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Starter Project"
+config/description="This is the starter project so that I can Start on any 2d game I want without having to setup everything from scratch."
+run/main_scene="uid://cnkslc4jk1i6b"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="uid://fyt3rlg3mga4"
