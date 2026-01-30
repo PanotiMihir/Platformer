@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://c1nypvrdhspbx"]
+
+[ext_resource type="Texture2D" uid="uid://dv1mj7evshgm1" path="res://Folders/Assets/Visuals/Tiles/Tile.png" id="1_qbecf"]
+[ext_resource type="PackedScene" uid="uid://chmeipbushhg1" path="res://Folders/Scenes/player.tscn" id="2_rx7xh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rx7xh"]
+texture = ExtResource("1_qbecf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_p78c2"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_rx7xh")
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_p78c2")
+
+[node name="Player" parent="." instance=ExtResource("2_rx7xh")]
