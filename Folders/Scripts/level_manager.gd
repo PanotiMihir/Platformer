@@ -12,22 +12,16 @@ func load_level(index: int) -> void:
 	var level_data = levels[current_level]
 	var t = level_data.transition_time
 
-	# Pause everything
 	get_tree().paused = true
 	
-	# Fade to black
 	await Transaction.fade_in(t)
 
-	# Change scene while black
 	get_tree().change_scene_to_file(level_data.path)
 	
-	# Wait for new scene
 	await get_tree().process_frame
 	
-	# Fade out (reveal new scene)
 	await Transaction.fade_out(t)
-	
-	# Unpause everything
+
 	get_tree().paused = false
 
 func next_level() -> void:
