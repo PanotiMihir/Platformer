@@ -18,8 +18,9 @@ config/icon="uid://fyt3rlg3mga4"
 
 [autoload]
 
-Global="*res://Folders/Scenes/global.tscn"
+Global="*res://Folders/Scenes/Globals/global.tscn"
 LevelManager="*res://Folders/Scenes/Globals/level_manager.tscn"
+Transaction="*res://Folders/Scenes/Globals/transaction.tscn"
 
 [editor]
 

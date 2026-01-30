@@ -5,10 +5,12 @@ extends CharacterBody2D
 @export var input_delay = 1.0
 @export var acceleration = 1400.0
 @export var friction = 1400.0
+@export var start_pos = Vector2()
 
 var can_accept_input = false
 
 func _ready() -> void:
+	position = start_pos
 	await get_tree().create_timer(input_delay).timeout
 	can_accept_input = true
 

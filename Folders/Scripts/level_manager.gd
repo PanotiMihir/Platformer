@@ -1,20 +1,36 @@
 extends Node
 
-# Template
-"res://Folders/Scenes/Levels/<Insert Level Here>.tscn"
-
 var levels := [
-	"res://Folders/Scenes/Levels/level_1.tscn",
-	"res://Folders/Scenes/Levels/level_2.tscn"
+	{"path": "res://Folders/Scenes/Levels/level_1.tscn", "transition_time": 1.0},
+	{"path": "res://Folders/Scenes/Levels/level_2.tscn", "transition_time": 1.5}
 ]
 
 var current_level := 0
 
-func load_level(index: int):
+func load_level(index: int) -> void:
 	current_level = index
-	get_tree().change_scene_to_file(levels[current_level])
+	var level_data = levels[current_level]
+	var t = level_data.transition_time
 
-func next_level():
+	# Pause everything
+	get_tree().paused = true
+	
+	# Fade to black
+	await Transaction.fade_in(t)
+
+	# Change scene while black
+	get_tree().change_scene_to_file(level_data.path)
+	
+	# Wait for new scene
+	await get_tree().process_frame
+	
+	# Fade out (reveal new scene)
+	await Transaction.fade_out(t)
+	
+	# Unpause everything
+	get_tree().paused = false
+
+func next_level() -> void:
 	current_level += 1
 	if current_level < levels.size():
 		load_level(current_level)
