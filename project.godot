@@ -21,6 +21,10 @@ config/icon="uid://fyt3rlg3mga4"
 Global="*res://Folders/Scenes/global.tscn"
 LevelManager="*res://Folders/Scenes/Globals/level_manager.tscn"
 
+[editor]
+
+version_control/autoload_on_startup=true
+
 [input]
 
 Left={

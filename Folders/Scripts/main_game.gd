@@ -1,4 +1,4 @@
 extends Node
 
 func _ready() -> void:
-	LevelManager.load_level(0)
+	LevelManager.load_level.call_deferred(0)

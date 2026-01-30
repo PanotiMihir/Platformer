@@ -4,7 +4,8 @@ extends Node
 "res://Folders/Scenes/Levels/<Insert Level Here>.tscn"
 
 var levels := [
-	"res://Folders/Scenes/Levels/level_1.tscn"
+	"res://Folders/Scenes/Levels/level_1.tscn",
+	"res://Folders/Scenes/Levels/level_2.tscn"
 ]
 
 var current_level := 0

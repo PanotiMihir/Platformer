@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c1nypvrdhspbx"]
+[gd_scene load_steps=6 format=4 uid="uid://c5obdufv5n20d"]
 
-[ext_resource type="Texture2D" uid="uid://dv1mj7evshgm1" path="res://Folders/Assets/Visuals/Tiles/Tile.png" id="1_qbecf"]
-[ext_resource type="PackedScene" uid="uid://chmeipbushhg1" path="res://Folders/Scenes/player.tscn" id="2_rx7xh"]
-[ext_resource type="PackedScene" uid="uid://bwjhjl51adjc" path="res://Folders/Scenes/EndArea.tscn" id="3_832fn"]
+[ext_resource type="Texture2D" uid="uid://dv1mj7evshgm1" path="res://Folders/Assets/Visuals/Tiles/Tile.png" id="1_pmwrp"]
+[ext_resource type="PackedScene" uid="uid://chmeipbushhg1" path="res://Folders/Scenes/player.tscn" id="2_1wx3c"]
+[ext_resource type="PackedScene" uid="uid://bwjhjl51adjc" path="res://Folders/Scenes/EndArea.tscn" id="3_6pmks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rx7xh"]
-texture = ExtResource("1_qbecf")
+texture = ExtResource("1_pmwrp")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -20,15 +20,15 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_rx7xh")
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_p78c2")
 
-[node name="Player" parent="." instance=ExtResource("2_rx7xh")]
+[node name="Player" parent="." instance=ExtResource("2_1wx3c")]
 input_delay = 0.5
 
-[node name="EndArea" parent="." instance=ExtResource("3_832fn")]
-position = Vector2(100, 0)
+[node name="EndArea" parent="." instance=ExtResource("3_6pmks")]
+position = Vector2(100, -26)
 scale = Vector2(2, 2)
