@@ -1,10 +1,11 @@
 extends Node
 
 # Setup
-var scene = 1
-var loop_levels = false
+var scene
+var loop_levels : bool = true
 
 # Player
-var coins = 0
-var health = 100
-var enemies_defeated = 0
+var running : bool
+var coins : int
+var health : float
+var enemies_defeated : int

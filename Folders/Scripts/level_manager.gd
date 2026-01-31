@@ -1,7 +1,5 @@
 extends Node
 
-var loop_levels: bool = Global.loop_levels
-
 var levels := [
 	{"path": "res://Folders/Scenes/Levels/level_1.tscn", "transition_time": 1.0},
 	{"path": "res://Folders/Scenes/Levels/level_2.tscn", "transition_time": 1.5}
@@ -14,20 +12,23 @@ func load_level(index: int) -> void:
 	var level_data = levels[current_level]
 	var t = level_data.transition_time
 
-	get_tree().paused = true
+	Global.running = false
 	await Transaction.fade_in(t)
 
 	get_tree().change_scene_to_file(level_data.path)
 	await get_tree().process_frame
+	
+	# Update Global.scene reference to the new level
+	Global.scene = get_tree().current_scene
 
 	await Transaction.fade_out(t)
-	get_tree().paused = false
+	Global.running = true
 
 func next_level() -> void:
 	current_level += 1
 
 	if current_level >= levels.size():
-		if loop_levels:
+		if Global.loop_levels:
 			current_level = 0
 		else:
 			print("All levels finished")

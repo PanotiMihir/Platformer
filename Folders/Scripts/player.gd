@@ -5,21 +5,26 @@ extends CharacterBody2D
 @export var input_delay = 1.0
 @export var acceleration = 1400.0
 @export var friction = 1400.0
+@export var terminal_velocity = 500.0  # Max falling speed
 @export var start_pos = Vector2()
-
-var can_accept_input = false
 
 func _ready() -> void:
 	position = start_pos
-	await get_tree().create_timer(input_delay).timeout
-	can_accept_input = true
+	Global.coins = 0
+	Global.health = 100
+	Global.enemies_defeated = 0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		# Clamp falling speed to terminal velocity
+		velocity.y = min(velocity.y, terminal_velocity)
 
-	if can_accept_input:
+	if Global.running:
 		handle_input(delta)
+	else:
+		# Apply friction when not accepting input
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 	move_and_slide()
 
