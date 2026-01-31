@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var start_pos = Vector2()
 
 func _ready() -> void:
+	add_to_group("player")
 	position = start_pos
 	Global.coins = 0
 	Global.health = 100

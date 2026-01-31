@@ -23,6 +23,8 @@ size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 100
+collision_layer = 2
+slide_on_ceiling = false
 script = ExtResource("1_6n2b4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
