@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dhki5q2jmqq33"]
+[gd_scene load_steps=2 format=3 uid="uid://dhki5q2jmqq33"]
+
+[ext_resource type="Script" uid="uid://dae1tkrk4sgbm" path="res://Folders/Scripts/save_and_load.gd" id="1_3b2ga"]
 
 [node name="SaveAndLoad" type="Node"]
+script = ExtResource("1_3b2ga")
