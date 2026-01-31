@@ -1,6 +1,6 @@
 extends Node
 
-var loop_levels: bool = false
+var loop_levels: bool = Global.loop_levels
 
 var levels := [
 	{"path": "res://Folders/Scenes/Levels/level_1.tscn", "transition_time": 1.0},
