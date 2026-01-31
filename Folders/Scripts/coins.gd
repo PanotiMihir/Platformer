@@ -1,5 +1,7 @@
 extends Area2D
 
+var was_running = false
+
 @export var coin_pos := Vector2()
 @export var collection_duration: float = 0.5
 @export var rise_height: float = 30.0
@@ -38,3 +40,14 @@ func _get_key() -> String:
 		get_tree().current_scene.scene_file_path,
 		get_path()
 	]
+
+func _process(_delta):
+	if Global.running == was_running:
+		return
+
+	was_running = Global.running
+
+	if Global.running:
+		$AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprite2D.pause()

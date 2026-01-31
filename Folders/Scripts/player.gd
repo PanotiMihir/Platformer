@@ -11,9 +11,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	add_to_group("player")
 	position = start_pos
-	Global.coins = 0
-	Global.health = 100
-	Global.enemies_defeated = 0
+	SaveAndLoad.save_default()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

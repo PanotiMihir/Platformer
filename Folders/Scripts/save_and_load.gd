@@ -13,16 +13,28 @@ func save_checkpoint() -> void:
 		"collected": Global.collected.duplicate(true)
 	}
 
+func save_default() -> void:
+	Global.checkpoint = {
+		"scene": 1,
+		"loop_levels": 0,
+		"running": false,
+
+		"coins": 0,
+		"health": 0,
+		"enemies_defeated": 0,
+
+		"collected": {}
+	}
 
 func load_checkpoint() -> void:
 	if Global.checkpoint.is_empty():
 		return
 
-	Global.scene = Global.checkpoint["scene"]
-	Global.loop_levels = Global.checkpoint["loop_levels"]
-	Global.running = Global.checkpoint["running"]
+	Global.scene = Global.checkpoint.get("scene", 1)
+	Global.loop_levels = Global.checkpoint.get("loop_levels", 0)
+	Global.running = Global.checkpoint.get("running", false)
 
-	Global.coins = Global.checkpoint["coins"]
-	Global.health = Global.checkpoint["health"]
-	Global.enemies_defeated = Global.checkpoint["enemies_defeated"]
-	Global.collected = Global.checkpoint["collected"].duplicate(true)
+	Global.coins = Global.checkpoint.get("coins", 0)
+	Global.health = Global.checkpoint.get("health", 0)
+	Global.enemies_defeated = Global.checkpoint.get("enemies_defeated", 0)
+	Global.collected = Global.checkpoint.get("collected", {}).duplicate(true)
