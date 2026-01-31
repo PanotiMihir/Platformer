@@ -37,5 +37,6 @@ tile_set = SubResource("TileSet_p78c2")
 input_delay = 0.5
 
 [node name="EndArea" parent="." instance=ExtResource("3_832fn")]
-position = Vector2(132, 0)
+position = Vector2(108, -4)
 scale = Vector2(2, 2)
+linkedscene = 2

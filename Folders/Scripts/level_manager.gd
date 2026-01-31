@@ -1,37 +1,29 @@
 extends Node
 
-var levels := [
-	{"path": "res://Folders/Scenes/Levels/level_1.tscn", "transition_time": 1.0},
-	{"path": "res://Folders/Scenes/Levels/level_2.tscn", "transition_time": 1.5}
-]
+func load_level(level_number: int) -> void:
+	var level_to_load := level_number
 
-var current_level := 0
+	if not Global.levels.has(level_number):
+		level_to_load = 0
 
-func load_level(index: int) -> void:
-	current_level = index
-	var level_data = levels[current_level]
-	var t = level_data.transition_time
+	var level_data: Dictionary = Global.levels[level_to_load]
+	var path: String = level_data["path"]
+	var t: float = level_data["transition_time"]
 
 	Global.running = false
-	await Transaction.fade_in(t)
 
-	get_tree().change_scene_to_file(level_data.path)
+	await Transaction.fade_in(t)
+	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
-	
-	# Update Global.scene reference to the new level
-	Global.scene = get_tree().current_scene
+
+	Global.scene = level_to_load
 
 	await Transaction.fade_out(t)
 	Global.running = true
 
-func next_level() -> void:
-	current_level += 1
+func reload_current_level() -> void:
+	load_level(Global.scene)
 
-	if current_level >= levels.size():
-		if Global.loop_levels:
-			current_level = 0
-		else:
-			print("All levels finished")
-			return
 
-	load_level(current_level)
+func load_fallback_level() -> void:
+	load_level(0)

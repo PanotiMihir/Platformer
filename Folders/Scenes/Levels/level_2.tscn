@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://c5obdufv5n20d"]
 
 [ext_resource type="Texture2D" uid="uid://dv1mj7evshgm1" path="res://Folders/Assets/Visuals/Tiles/Tile.png" id="1_pmwrp"]
-[ext_resource type="PackedScene" uid="uid://chmeipbushhg1" path="res://Folders/Scenes/player.tscn" id="2_1wx3c"]
-[ext_resource type="PackedScene" uid="uid://bwjhjl51adjc" path="res://Folders/Scenes/EndArea.tscn" id="3_6pmks"]
+[ext_resource type="PackedScene" uid="uid://chmeipbushhg1" path="res://Folders/Scenes/Others/player.tscn" id="2_1wx3c"]
+[ext_resource type="PackedScene" uid="uid://bwjhjl51adjc" path="res://Folders/Scenes/Others/EndArea.tscn" id="3_6pmks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rx7xh"]
 texture = ExtResource("1_pmwrp")
@@ -30,5 +30,6 @@ tile_set = SubResource("TileSet_p78c2")
 input_delay = 0.5
 
 [node name="EndArea" parent="." instance=ExtResource("3_6pmks")]
-position = Vector2(100, -26)
+position = Vector2(110, 0)
 scale = Vector2(2, 2)
+linkedscene = 1
