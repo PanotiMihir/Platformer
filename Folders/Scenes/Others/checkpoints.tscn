@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3mahqw8larpu"]
+[gd_scene load_steps=6 format=3 uid="uid://b3mahqw8larpu"]
 
 [ext_resource type="Texture2D" uid="uid://fyt3rlg3mga4" path="res://icon.svg" id="1_7wlm5"]
+[ext_resource type="Script" uid="uid://dea3nesawbyfc" path="res://Folders/Scripts/checkpoints.gd" id="1_ie56e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ie56e"]
 atlas = ExtResource("1_7wlm5")
@@ -21,9 +22,12 @@ animations = [{
 size = Vector2(128, 128)
 
 [node name="Checkpoints" type="Area2D"]
+script = ExtResource("1_ie56e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_438vc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_brufx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

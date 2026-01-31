@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwjhjl51adjc"]
+[gd_scene load_steps=3 format=3 uid="uid://bwjhjl51adjc"]
 
 [ext_resource type="Texture2D" uid="uid://d2wj5xaju6bjx" path="res://Folders/Assets/Visuals/EndArea.png" id="1_cec48"]
-[ext_resource type="Script" uid="uid://b0ccvfb5lfu7k" path="res://Folders/Scripts/end_area.gd" id="1_onvji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onvji"]
 size = Vector2(16, 16)
@@ -9,7 +8,6 @@ size = Vector2(16, 16)
 [node name="EndArea" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_onvji")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cec48")

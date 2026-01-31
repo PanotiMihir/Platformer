@@ -21,6 +21,7 @@ config/icon="uid://fyt3rlg3mga4"
 Global="*res://Folders/Scenes/Globals/global.tscn"
 LevelManager="*res://Folders/Scenes/Globals/level_manager.tscn"
 Transaction="*res://Folders/Scenes/Globals/transaction.tscn"
+SaveAndLoad="*res://Folders/Scenes/Globals/save_and_load.tscn"
 
 [editor]
 
